@@ -6,3 +6,12 @@ this is for ssl in keytool.exe
 -Djavax.net.ssl.keyStorePassword=888888
 -Djavax.net.debug=ssl:handshake
 add this on RUN in project
+
+
+for client PC
+
+cd /d "C:\Users\tiram\OneDrive\Desktop\DCS"
+
+dir client-truststore.p12
+
+"C:\Program Files\Java\jdk-17\bin\keytool.exe" -importcert -alias crest-rmi -file crest-rmi.cer -keystore client-truststore.p12 -storetype PKCS12 -storepass 888888 -noprompt
