@@ -10,15 +10,22 @@ import java.rmi.registry.Registry;
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ClientMain {
+    private static final Pattern PERSON_NAME_PATTERN = Pattern.compile("[A-Za-z]+(?:[ -][A-Za-z]+)*");
+    private static final Pattern IC_PASSPORT_PATTERN = Pattern.compile("[A-Za-z0-9-]{6,20}");
+    private static final Pattern USER_ID_PATTERN = Pattern.compile("(?:E|H)-\\d{6}");
+    private static final Pattern EMPLOYEE_ID_PATTERN = Pattern.compile("E-\\d{6}");
+    private static final Pattern PHONE_PATTERN = Pattern.compile("\\+?\\d{8,15}");
+    private static final Pattern RELATIONSHIP_PATTERN = Pattern.compile("[A-Za-z]+(?:[ -][A-Za-z]+)*");
 
-    private static final String SERVER_IP = "192.168.1.19";
+    private static final String SERVER_IP = "127.0.0.1";
     private static final int SERVER_PORT = 1099;
 
 
     private static final String TRUSTSTORE_PATH =
-            "C:\\Users\\tiram\\OneDrive\\Desktop\\DCS\\client-truststore.p12";
+            "C:\\Users\\User\\Documents\\NetBeansProjects\\DCS\\client-truststore.p12";
     private static final String TRUSTSTORE_PASS = "888888";
 
     public static void main(String[] args) {
@@ -75,18 +82,26 @@ public class ClientMain {
     private static UserSession doLogin(Scanner sc, Authorization service) {
         try {
             System.out.println("\n==== LOGIN ====");
-            System.out.print("User ID: ");
-            String id = sc.nextLine().trim();
-
-            System.out.print("Password: ");
-            String pw = sc.nextLine();
+            System.out.println("Type CANCEL at any prompt to retry login.");
+            String id = promptValidated(sc, "User ID: ", "User ID", USER_ID_PATTERN,
+                    "User ID must follow the format H-000001 or E-000001.");
+            if (id == null) {
+                System.out.println("Login cancelled.");
+                return null;
+            }
+            id = id.toUpperCase();
+            String pw = promptRequired(sc, "Password: ", "Password");
+            if (pw == null) {
+                System.out.println("Login cancelled.");
+                return null;
+            }
 
             UserSession session = service.login(id, pw);
             System.out.println("Login success. Role: " + session.getRole());
             return session;
 
         } catch (Exception e) {
-            System.out.println("Login failed: " + e.getMessage());
+            System.out.println("Login failed: " + friendlyError(e));
             return null;
         }
     }
@@ -100,25 +115,46 @@ public class ClientMain {
             System.out.println("5) Logout");
             System.out.print("Choice: ");
             String choice = sc.nextLine().trim();
+            if (choice.isEmpty()) {
+                System.out.println("Please do not leave selection blank.");
+                continue;
+            }
 
             try {
                 switch (choice) {
 
                     case "1": {
-                        System.out.print("First Name: ");
-                        String fn = sc.nextLine().trim();
+                        System.out.println("Type CANCEL at any prompt to go back.");
 
-                        System.out.print("Last Name: ");
-                        String ln = sc.nextLine().trim();
+                        String fn = promptValidated(sc, "First Name: ", "First name", PERSON_NAME_PATTERN,
+                                "First name must contain alphabet letters only.");
+                        if (fn == null) {
+                            System.out.println("Employee creation cancelled.");
+                            break;
+                        }
 
-                        System.out.print("IC/Passport: ");
-                        String ic = sc.nextLine().trim();
+                        String ln = promptValidated(sc, "Last Name: ", "Last name", PERSON_NAME_PATTERN,
+                                "Last name must contain alphabet letters only.");
+                        if (ln == null) {
+                            System.out.println("Employee creation cancelled.");
+                            break;
+                        }
 
-                        System.out.print("Initial Password: ");
-                        String initPass = sc.nextLine();
+                        String ic = promptValidated(sc, "IC/Passport: ", "IC/Passport", IC_PASSPORT_PATTERN,
+                                "IC/Passport must be 6 to 20 characters using letters, numbers, or hyphen.");
+                        if (ic == null) {
+                            System.out.println("Employee creation cancelled.");
+                            break;
+                        }
+
+                        String initPass = promptPassword(sc);
+                        if (initPass == null) {
+                            System.out.println("Employee creation cancelled.");
+                            break;
+                        }
 
                         Employee e = service.registerEmployee(session, fn, ln, ic, initPass);
-                        System.out.println("✅ Employee created: " + e.getEmployeeId());
+                        System.out.println("Employee created: " + e.getEmployeeId());
                         break;
                     }
 
@@ -133,9 +169,14 @@ public class ClientMain {
                         System.out.println(pending);
 
                         System.out.print("\nEnter Leave ID to decide (or 0 to cancel): ");
+                        String leaveIdInput = sc.nextLine().trim();
+                        if (leaveIdInput.isEmpty()) {
+                            System.out.println("Please do not leave selection blank.");
+                            break;
+                        }
                         int leaveId;
                         try {
-                            leaveId = Integer.parseInt(sc.nextLine().trim());
+                            leaveId = Integer.parseInt(leaveIdInput);
                         } catch (NumberFormatException nfe) {
                             System.out.println(" Invalid leave ID.");
                             break;
@@ -148,6 +189,10 @@ public class ClientMain {
 
                         System.out.print("Approve? (Y/N): ");
                         String decision = sc.nextLine().trim();
+                        if (decision.isEmpty()) {
+                            System.out.println("Please do not leave selection blank.");
+                            break;
+                        }
 
                         boolean approve;
                         if (decision.equalsIgnoreCase("Y")) {
@@ -165,15 +210,17 @@ public class ClientMain {
                     }
 
                     case "4": {
-                        System.out.print("Enter Employee ID: ");
-                        String empId = sc.nextLine().trim();
-
-                        System.out.print("Enter Year: ");
-                        int year;
-                        try {
-                            year = Integer.parseInt(sc.nextLine().trim());
-                        } catch (NumberFormatException nfe) {
-                            System.out.println(" Invalid year.");
+                        System.out.println("Type CANCEL at any prompt to go back.");
+                        String empId = promptValidated(sc, "Enter Employee ID: ", "Employee ID", EMPLOYEE_ID_PATTERN,
+                                "Employee ID must follow the format E-000001.");
+                        if (empId == null) {
+                            System.out.println("Report generation cancelled.");
+                            break;
+                        }
+                        empId = empId.toUpperCase();
+                        int year = promptYear(sc);
+                        if (year == -1) {
+                            System.out.println("Report generation cancelled.");
                             break;
                         }
 
@@ -197,7 +244,7 @@ public class ClientMain {
                     System.out.println(" Session expired. Please login again.");
                     return null;
                 }
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println("Error: " + friendlyError(ex));
             }
         }
     }
@@ -213,12 +260,17 @@ public class ClientMain {
             System.out.println("6) Logout");
             System.out.print("Choice: ");
             String choice = sc.nextLine().trim();
+            if (choice.isEmpty()) {
+                System.out.println("Please do not leave selection blank.");
+                continue;
+            }
 
             try {
                 switch (choice) {
 
                     case "1": {
                         Employee profile = service.getMyProfile(session);
+                        System.out.println("Type CANCEL at any prompt to go back.");
 
                         while (true) {
                             System.out.println("\n=== UPDATE DETAILS ===");
@@ -230,24 +282,51 @@ public class ClientMain {
                             System.out.print("Select a field to edit: ");
 
                             String pick = sc.nextLine().trim();
+                            if (pick.isEmpty()) {
+                                System.out.println("Please do not leave selection blank.");
+                                continue;
+                            }
                             if (pick.equals("5")) break;
 
                             switch (pick) {
                                 case "1":
-                                    System.out.print("New Phone: ");
-                                    profile.setPhoneNo(sc.nextLine().trim());
+                                    String newPhone = promptValidated(sc, "New Phone: ", "Phone", PHONE_PATTERN,
+                                            "Phone must contain 8 to 15 digits and may start with +.");
+                                    if (newPhone == null) {
+                                        System.out.println("Update cancelled.");
+                                        break;
+                                    }
+                                    profile.setPhoneNo(newPhone);
                                     break;
                                 case "2":
-                                    System.out.print("New Emergency Family Name: ");
-                                    profile.setEmergencyName(sc.nextLine().trim());
+                                    String newEmergencyName = promptValidated(sc, "New Emergency Family Name: ",
+                                            "Emergency family name", PERSON_NAME_PATTERN,
+                                            "Emergency family name must contain alphabet letters only.");
+                                    if (newEmergencyName == null) {
+                                        System.out.println("Update cancelled.");
+                                        break;
+                                    }
+                                    profile.setEmergencyName(newEmergencyName);
                                     break;
                                 case "3":
-                                    System.out.print("New Emergency Contact No: ");
-                                    profile.setEmergencyPhoneNo(sc.nextLine().trim());
+                                    String newEmergencyPhone = promptValidated(sc, "New Emergency Contact No: ",
+                                            "Emergency contact no", PHONE_PATTERN,
+                                            "Emergency contact no must contain 8 to 15 digits and may start with +.");
+                                    if (newEmergencyPhone == null) {
+                                        System.out.println("Update cancelled.");
+                                        break;
+                                    }
+                                    profile.setEmergencyPhoneNo(newEmergencyPhone);
                                     break;
                                 case "4":
-                                    System.out.print("New Emergency Relationship: ");
-                                    profile.setEmergencyRelationship(sc.nextLine().trim());
+                                    String newRelationship = promptValidated(sc, "New Emergency Relationship: ",
+                                            "Emergency relationship", RELATIONSHIP_PATTERN,
+                                            "Emergency relationship must contain alphabet letters only.");
+                                    if (newRelationship == null) {
+                                        System.out.println("Update cancelled.");
+                                        break;
+                                    }
+                                    profile.setEmergencyRelationship(newRelationship);
                                     break;
                                 default:
                                     System.out.println("Invalid option");
@@ -274,6 +353,7 @@ public class ClientMain {
 
                     case "3": {
                         while (true) {
+                            System.out.println("Type CANCEL at any prompt to go back.");
                             System.out.println("\nSelect Leave Type:");
                             System.out.println("1) Annual Leave");
                             System.out.println("2) Medical Leave");
@@ -283,6 +363,14 @@ public class ClientMain {
                             System.out.print("Choice: ");
 
                             String typeChoice = sc.nextLine().trim();
+                            if (typeChoice.equalsIgnoreCase("CANCEL")) {
+                                System.out.println("Leave application cancelled.");
+                                return session;
+                            }
+                            if (typeChoice.isEmpty()) {
+                                System.out.println("Please do not leave selection blank.");
+                                continue;
+                            }
                             String type;
 
                             switch (typeChoice) {
@@ -298,26 +386,27 @@ public class ClientMain {
                                     continue;
                             }
 
-                            System.out.print("Start Date (YYYY-MM-DD): ");
-                            String start = sc.nextLine().trim();
-
-                            System.out.print("Number of Leave Days: ");
-                            String daysInput = sc.nextLine().trim();
-
-                            System.out.print("Reason: ");
-                            String reason = sc.nextLine().trim();
+                            String start = promptRequired(sc, "Start Date (YYYY-MM-DD): ", "Start date");
+                            if (start == null) {
+                                System.out.println("Leave application cancelled.");
+                                return session;
+                            }
+                            int requestedDays = promptPositiveInt(sc, "Number of Leave Days: ", "Leave days");
+                            if (requestedDays == -1) {
+                                System.out.println("Leave application cancelled.");
+                                return session;
+                            }
+                            String reason = promptRequired(sc, "Reason: ", "Reason");
+                            if (reason == null) {
+                                System.out.println("Leave application cancelled.");
+                                return session;
+                            }
 
                             try {
                                 java.time.LocalDate sDate = java.time.LocalDate.parse(start);
-                                int requestedDays = Integer.parseInt(daysInput);
 
                                 if (sDate.isBefore(java.time.LocalDate.now())) {
                                     System.out.println(" Start date cannot be in the past.");
-                                    continue;
-                                }
-
-                                if (requestedDays <= 0) {
-                                    System.out.println(" Leave days must be at least 1.");
                                     continue;
                                 }
 
@@ -347,6 +436,14 @@ public class ClientMain {
                                 System.out.print("Confirm submit? (Y/N): ");
 
                                 String confirm = sc.nextLine().trim();
+                                if (confirm.equalsIgnoreCase("CANCEL")) {
+                                    System.out.println("Leave application cancelled.");
+                                    return session;
+                                }
+                                if (confirm.isEmpty()) {
+                                    System.out.println("Please do not leave selection blank.");
+                                    continue;
+                                }
                                 if (!confirm.equalsIgnoreCase("Y")) {
                                     System.out.println("Submission cancelled.");
                                     return session;
@@ -357,10 +454,8 @@ public class ClientMain {
                                 System.out.println(" Leave submitted. ID: " + leaveId + " (Status: PENDING)");
                                 return session;
 
-                            } catch (NumberFormatException ex) {
-                                System.out.println(" Invalid leave days. Enter a whole number such as 3.");
                             } catch (Exception ex) {
-                                System.out.println(" Invalid input. Use YYYY-MM-DD for the start date and a valid number of leave days.");
+                                System.out.println(" " + friendlyError(ex));
                             }
                         }
                     }
@@ -391,7 +486,7 @@ public class ClientMain {
                     System.out.println("⚠ Session expired. Please login again.");
                     return null;
                 }
-                System.out.println("Error: " + ex.getMessage());
+                System.out.println("Error: " + friendlyError(ex));
             }
         }
     }
@@ -403,10 +498,109 @@ public class ClientMain {
     }
 
     private static boolean isSessionExpired(Exception ex) {
-        String msg = ex.getMessage();
+        String msg = friendlyError(ex);
         if (msg == null) return false;
         msg = msg.toLowerCase();
         return msg.contains("expired") || msg.contains("invalid");
+    }
+
+    private static String promptValidated(Scanner sc, String prompt, String fieldName, Pattern pattern, String invalidMessage) {
+        while (true) {
+            System.out.print(prompt);
+            String value = sc.nextLine().trim();
+            if (value.equalsIgnoreCase("CANCEL")) {
+                return null;
+            }
+            if (value.isEmpty()) {
+                System.out.println("Please do not leave " + fieldName + " blank.");
+                continue;
+            }
+            if (!pattern.matcher(value).matches()) {
+                System.out.println(invalidMessage);
+                continue;
+            }
+            return value;
+        }
+    }
+
+    private static String promptPassword(Scanner sc) {
+        while (true) {
+            String password = promptRequired(sc, "Initial Password: ", "Initial password");
+            if (password == null) {
+                return null;
+            }
+            if (password.length() < 6) {
+                System.out.println("Initial password must be at least 6 characters.");
+                continue;
+            }
+            return password;
+        }
+    }
+
+    private static String promptRequired(Scanner sc, String prompt, String fieldName) {
+        while (true) {
+            System.out.print(prompt);
+            String value = sc.nextLine().trim();
+            if (value.equalsIgnoreCase("CANCEL")) {
+                return null;
+            }
+            if (value.isEmpty()) {
+                System.out.println("Please do not leave " + fieldName + " blank.");
+                continue;
+            }
+            return value;
+        }
+    }
+
+    private static int promptPositiveInt(Scanner sc, String prompt, String fieldName) {
+        while (true) {
+            String value = promptRequired(sc, prompt, fieldName);
+            if (value == null) {
+                return -1;
+            }
+            try {
+                int parsed = Integer.parseInt(value);
+                if (parsed <= 0) {
+                    System.out.println(fieldName + " must be at least 1.");
+                    continue;
+                }
+                return parsed;
+            } catch (NumberFormatException ex) {
+                System.out.println(fieldName + " must be a whole number.");
+            }
+        }
+    }
+
+    private static int promptYear(Scanner sc) {
+        while (true) {
+            int year = promptPositiveInt(sc, "Enter Year: ", "Year");
+            if (year == -1) {
+                return -1;
+            }
+            if (year < 2000 || year > 2100) {
+                System.out.println("Year must be between 2000 and 2100.");
+                continue;
+            }
+            return year;
+        }
+    }
+
+    private static String friendlyError(Throwable throwable) {
+        Throwable current = throwable;
+        String fallback = null;
+        while (current != null) {
+            String msg = current.getMessage();
+            if (msg != null && !msg.isBlank()) {
+                if (!msg.startsWith("RemoteException occurred in server thread")
+                        && !msg.contains("nested exception is")) {
+                    fallback = msg;
+                } else if (fallback == null) {
+                    fallback = msg;
+                }
+            }
+            current = current.getCause();
+        }
+        return fallback != null ? fallback : "Unexpected error occurred.";
     }
 
     private static String nullSafe(String s){

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DatabaseSocket {
 
     //  Device 3 IP here
-    private static final String DB_HOST = "192.168.1.6"; // <-- DB Server IP
+    private static final String DB_HOST = "127.0.0.1"; // <-- DB Server IP
     private static final int DB_PORT = 1527;
     private static final String DB_NAME = "crestDB";
 

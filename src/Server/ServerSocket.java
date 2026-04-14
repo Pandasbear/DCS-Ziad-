@@ -7,12 +7,12 @@ import javax.rmi.ssl.SslRMIServerSocketFactory;
 
 public class ServerSocket {
 
-    private static final String SERVER_IP = "192.168.1.19";
+    private static final String SERVER_IP = "127.0.0.1";
     private static final int PORT = 1099;
 
 
     private static final String KEYSTORE_PATH =
-            "C:\\Users\\User\\Documents\\NetBeansProjects\\Crest\\server.keystore";
+            "C:\\Users\\User\\Documents\\NetBeansProjects\\DCS\\server-keystore.p12";
     private static final String KEYSTORE_PASS = "888888";
 
 
@@ -54,6 +54,7 @@ public class ServerSocket {
                 reg = LocateRegistry.createRegistry(PORT);
             }
 
+            Database.init();
             ServiceImpl svc = new ServiceImpl();
 
             reg.rebind("Authorization", svc);

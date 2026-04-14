@@ -121,6 +121,27 @@ public class LeaveApplicationsRepository {
         }
     }
 
+    public boolean hasOverlappingApplication(String employeeId, LocalDate startDate, LocalDate endDate) throws SQLException {
+        String sql =
+                "SELECT 1 FROM LEAVE_APPLICATIONS " +
+                "WHERE EMPLOYEE_ID = ? " +
+                "AND STATUS IN ('PENDING','APPROVED') " +
+                "AND START_DATE <= ? " +
+                "AND END_DATE >= ?";
+
+        try (Connection c = DatabaseSocket.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+
+            ps.setString(1, employeeId);
+            ps.setDate(2, Date.valueOf(endDate));
+            ps.setDate(3, Date.valueOf(startDate));
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        }
+    }
+
     private LeaveRow map(ResultSet rs) throws SQLException {
         LeaveRow r = new LeaveRow();
         r.leaveId = rs.getInt("LEAVE_ID");
