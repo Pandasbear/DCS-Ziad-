@@ -36,8 +36,10 @@ java -cp "build/classes:lib/*" Client.ClientMain
 - **HR (default):**
   - User ID: `H-000001`
   - Password: `hr123`
-- **Staff users:**
-  - Created by HR in the GUI.
-  - User ID is auto-generated (UUID-based token).
-  - Password is the initial password set during registration.
+- **Seeded staff users (UUID-derived 6-char IDs):**
+  - `5ffc65` / `Seed#123A` (Alice Wong)
+  - `81ba63` / `Seed#123B` (Brian Tan)
+  - `0df6ff` / `Seed#123C` (Chloe Lim)
+- **For new staff created by HR:**
+  - User ID is auto-generated from UUID (6-char compact token).
   - Password rule: 8-64 chars with uppercase, lowercase, number, and symbol.
