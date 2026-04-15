@@ -389,3 +389,22 @@
 {"ts":"2026-04-15T19:59:12.526139Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
 {"ts":"2026-04-15T19:59:12.539742Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee f84488"}
 {"ts":"2026-04-15T19:59:12.540452Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T20:10:59.644189Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T20:10:59.728002Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T20:10:59.824411Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 90d267"}
+{"ts":"2026-04-15T20:10:59.852541Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 90d267"}
+{"ts":"2026-04-15T20:10:59.858889Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 90d267"}
+{"ts":"2026-04-15T20:10:59.861515Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T20:10:59.910889Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 90d267 role=STAFF"}
+{"ts":"2026-04-15T20:10:59.917443Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 90d267 year=2026 bal=15"}
+{"ts":"2026-04-15T20:10:59.971201Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=90d267 leaveId=607 days=1"}
+{"ts":"2026-04-15T20:10:59.972428Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 90d267"}
+{"ts":"2026-04-15T20:11:00.006266Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T20:11:00.025132Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=607 by=H-000001"}
+{"ts":"2026-04-15T20:11:00.026804Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T20:11:00.062349Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 90d267 role=STAFF"}
+{"ts":"2026-04-15T20:11:00.065733Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 90d267 year=2026 bal=14"}
+{"ts":"2026-04-15T20:11:00.066439Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 90d267"}
+{"ts":"2026-04-15T20:11:00.099191Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T20:11:00.117926Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee 90d267"}
+{"ts":"2026-04-15T20:11:00.118616Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
