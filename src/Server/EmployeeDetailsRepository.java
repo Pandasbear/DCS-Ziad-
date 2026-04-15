@@ -27,15 +27,19 @@ public class EmployeeDetailsRepository {
     }
 
     public void updateFromEmployee(Employee e) throws SQLException {
-        
-        createIfNotExists(e.getEmployeeId());
+        try (Connection c = DatabaseSocket.getConnection()) {
+            updateFromEmployee(c, e);
+        }
+    }
+
+    public void updateFromEmployee(Connection c, Employee e) throws SQLException {
+        createIfNotExists(c, e.getEmployeeId());
 
         String sql = "UPDATE EMPLOYEE_DETAILS " +
                 "SET PHONE = ?, EMERGENCY_NAME = ?, EMERGENCY_NO = ?, EMERGENCY_RELATIONSHIP = ? " +
                 "WHERE EMPLOYEE_ID = ?";
 
-        try (Connection c = DatabaseSocket.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql)) {
+        try (PreparedStatement ps = c.prepareStatement(sql)) {
 
             ps.setString(1, e.getPhoneNo());
             ps.setString(2, e.getEmergencyName());
@@ -43,6 +47,21 @@ public class EmployeeDetailsRepository {
             ps.setString(4, e.getEmergencyRelationship());
             ps.setString(5, e.getEmployeeId());
 
+            ps.executeUpdate();
+        }
+    }
+
+    public void createIfNotExists(Connection c, String employeeId) throws SQLException {
+        String check = "SELECT 1 FROM EMPLOYEE_DETAILS WHERE EMPLOYEE_ID = ?";
+        try (PreparedStatement ps = c.prepareStatement(check)) {
+            ps.setString(1, employeeId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) return;
+        }
+
+        String insert = "INSERT INTO EMPLOYEE_DETAILS (EMPLOYEE_ID) VALUES (?)";
+        try (PreparedStatement ps = c.prepareStatement(insert)) {
+            ps.setString(1, employeeId);
             ps.executeUpdate();
         }
     }
@@ -64,6 +83,14 @@ public class EmployeeDetailsRepository {
                     rs.getString("EMERGENCY_NO"),
                     rs.getString("EMERGENCY_RELATIONSHIP")
             );
+        }
+    }
+
+    public void deleteByEmployee(Connection c, String employeeId) throws SQLException {
+        String sql = "DELETE FROM EMPLOYEE_DETAILS WHERE EMPLOYEE_ID = ?";
+        try (PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, employeeId);
+            ps.executeUpdate();
         }
     }
 

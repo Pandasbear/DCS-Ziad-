@@ -9,34 +9,31 @@ public class Database {
         try (Connection c = DatabaseSocket.getConnection();
              Statement st = c.createStatement()) {
 
-            // 1) USERS (login + role + salted hash)
             try {
                 st.executeUpdate(
                     "CREATE TABLE USERS (" +
-                    "USER_ID VARCHAR(20) PRIMARY KEY, " +
+                    "USER_ID VARCHAR(64) PRIMARY KEY, " +
                     "ROLE VARCHAR(20) NOT NULL, " +
                     "SALT VARCHAR(200) NOT NULL, " +
                     "HASH VARCHAR(200) NOT NULL)"
                 );
             } catch (Exception ignored) {}
 
-            // 2) EMPLOYEES (HR registers these only)
             try {
                 st.executeUpdate(
                     "CREATE TABLE EMPLOYEES (" +
-                    "EMPLOYEE_ID VARCHAR(20) PRIMARY KEY, " +
+                    "EMPLOYEE_ID VARCHAR(64) PRIMARY KEY, " +
                     "FIRST_NAME VARCHAR(50) NOT NULL, " +
                     "LAST_NAME VARCHAR(50) NOT NULL, " +
                     "IC_PASSPORT VARCHAR(30) NOT NULL UNIQUE)"
                 );
             } catch (Exception ignored) {}
 
-            // 3) EMPLOYEE_DETAILS (1 emergency contact per employee)
             try {
                 st.executeUpdate(
                     "CREATE TABLE EMPLOYEE_DETAILS (" +
-                    "EMPLOYEE_ID VARCHAR(20) PRIMARY KEY, " +
-                    "PHONE VARCHAR(30), " +                         // optional: employee phone
+                    "EMPLOYEE_ID VARCHAR(64) PRIMARY KEY, " +
+                    "PHONE VARCHAR(30), " +
                     "EMERGENCY_NAME VARCHAR(50), " +
                     "EMERGENCY_NO VARCHAR(30), " +
                     "EMERGENCY_RELATIONSHIP VARCHAR(30), " +
@@ -44,11 +41,10 @@ public class Database {
                 );
             } catch (Exception ignored) {}
 
-            // 4) LEAVE_BALANCE (yearly balance)
             try {
                 st.executeUpdate(
                     "CREATE TABLE LEAVE_BALANCE (" +
-                    "EMPLOYEE_ID VARCHAR(20), " +
+                    "EMPLOYEE_ID VARCHAR(64), " +
                     "LEAVE_YEAR INT, " +
                     "BALANCE INT NOT NULL, " +
                     "PRIMARY KEY (EMPLOYEE_ID, LEAVE_YEAR), " +
@@ -56,13 +52,11 @@ public class Database {
                 );
             } catch (Exception ignored) {}
 
-            // 5) LEAVE_APPLICATIONS (apply, status, history, report)
-            // Add: LEAVE_TYPE + DAYS_REQUESTED + default APPLIED_AT + CHECK constraints
             try {
                 st.executeUpdate(
                     "CREATE TABLE LEAVE_APPLICATIONS (" +
                     "LEAVE_ID INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, " +
-                    "EMPLOYEE_ID VARCHAR(20) NOT NULL, " +
+                    "EMPLOYEE_ID VARCHAR(64) NOT NULL, " +
                     "LEAVE_TYPE VARCHAR(30) NOT NULL, " +
                     "START_DATE DATE NOT NULL, " +
                     "END_DATE DATE NOT NULL, " +
@@ -70,7 +64,7 @@ public class Database {
                     "REASON VARCHAR(200), " +
                     "STATUS VARCHAR(20) NOT NULL, " +
                     "APPLIED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP, " +
-                    "DECIDED_BY VARCHAR(20), " +
+                    "DECIDED_BY VARCHAR(64), " +
                     "DECIDED_AT TIMESTAMP, " +
                     "CONSTRAINT CK_DATES CHECK (END_DATE >= START_DATE), " +
                     "CONSTRAINT CK_STATUS CHECK (STATUS IN ('PENDING','APPROVED','REJECTED')), " +

@@ -53,9 +53,14 @@ public class LeaveApplicationsRepository {
     }
 
     public LeaveRow findById(int leaveId) throws SQLException {
+        try (Connection c = DatabaseSocket.getConnection()) {
+            return findById(c, leaveId);
+        }
+    }
+
+    public LeaveRow findById(Connection c, int leaveId) throws SQLException {
         String sql = "SELECT * FROM LEAVE_APPLICATIONS WHERE LEAVE_ID = ?";
-        try (Connection c = DatabaseSocket.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql)) {
+        try (PreparedStatement ps = c.prepareStatement(sql)) {
             ps.setInt(1, leaveId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (!rs.next()) return null;
@@ -121,6 +126,27 @@ public class LeaveApplicationsRepository {
         }
     }
 
+    public boolean setDecisionIfPending(int leaveId, String status, String decidedBy) throws SQLException {
+        try (Connection c = DatabaseSocket.getConnection()) {
+            return setDecisionIfPending(c, leaveId, status, decidedBy);
+        }
+    }
+
+    public boolean setDecisionIfPending(Connection c, int leaveId, String status, String decidedBy) throws SQLException {
+        String sql =
+                "UPDATE LEAVE_APPLICATIONS " +
+                "SET STATUS = ?, DECIDED_BY = ?, DECIDED_AT = CURRENT_TIMESTAMP " +
+                "WHERE LEAVE_ID = ? AND STATUS = 'PENDING'";
+
+        try (PreparedStatement ps = c.prepareStatement(sql)) {
+
+            ps.setString(1, status);
+            ps.setString(2, decidedBy);
+            ps.setInt(3, leaveId);
+            return ps.executeUpdate() == 1;
+        }
+    }
+
     public boolean hasOverlappingApplication(String employeeId, LocalDate startDate, LocalDate endDate) throws SQLException {
         String sql =
                 "SELECT 1 FROM LEAVE_APPLICATIONS " +
@@ -160,28 +186,36 @@ public class LeaveApplicationsRepository {
     
     public List<LeaveRow> listApprovedByEmployeeAndYear(String employeeId, int year) throws SQLException {
 
-    Date from = Date.valueOf(LocalDate.of(year, 1, 1));
-    Date to   = Date.valueOf(LocalDate.of(year, 12, 31));
+        Date from = Date.valueOf(LocalDate.of(year, 1, 1));
+        Date to = Date.valueOf(LocalDate.of(year, 12, 31));
 
-    String sql =
-            "SELECT * FROM LEAVE_APPLICATIONS " +
-            "WHERE EMPLOYEE_ID = ? " +
-            "AND STATUS = 'APPROVED' " +
-            "AND START_DATE >= ? AND START_DATE <= ? " +
-            "ORDER BY START_DATE ASC";
+        String sql =
+                "SELECT * FROM LEAVE_APPLICATIONS " +
+                "WHERE EMPLOYEE_ID = ? " +
+                "AND STATUS = 'APPROVED' " +
+                "AND START_DATE >= ? AND START_DATE <= ? " +
+                "ORDER BY START_DATE ASC";
 
-    try (Connection c = DatabaseSocket.getConnection();
-         PreparedStatement ps = c.prepareStatement(sql)) {
+        try (Connection c = DatabaseSocket.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
 
-        ps.setString(1, employeeId);
-        ps.setDate(2, from);
-        ps.setDate(3, to);
+            ps.setString(1, employeeId);
+            ps.setDate(2, from);
+            ps.setDate(3, to);
 
-        try (ResultSet rs = ps.executeQuery()) {
-            List<LeaveRow> out = new ArrayList<>();
-            while (rs.next()) out.add(map(rs));
-            return out;
+            try (ResultSet rs = ps.executeQuery()) {
+                List<LeaveRow> out = new ArrayList<>();
+                while (rs.next()) out.add(map(rs));
+                return out;
+            }
         }
     }
-}
+
+    public void deleteByEmployee(Connection c, String employeeId) throws SQLException {
+        String sql = "DELETE FROM LEAVE_APPLICATIONS WHERE EMPLOYEE_ID = ?";
+        try (PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, employeeId);
+            ps.executeUpdate();
+        }
+    }
 }

@@ -47,6 +47,25 @@ public class UsersRepository {
         }
     }
 
+    public void updateCredentials(String userId, String salt, String hash) throws SQLException {
+        String sql = "UPDATE USERS SET SALT = ?, HASH = ? WHERE USER_ID = ?";
+        try (Connection c = DatabaseSocket.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, salt);
+            ps.setString(2, hash);
+            ps.setString(3, userId);
+            ps.executeUpdate();
+        }
+    }
+
+    public void deleteById(Connection c, String userId) throws SQLException {
+        String sql = "DELETE FROM USERS WHERE USER_ID = ?";
+        try (PreparedStatement ps = c.prepareStatement(sql)) {
+            ps.setString(1, userId);
+            ps.executeUpdate();
+        }
+    }
+
     public static class UserRow {
         public final String userId;
         public final UserRole role;

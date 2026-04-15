@@ -1,22 +1,31 @@
 package Server;
 
+import java.rmi.server.ExportException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.nio.file.Paths;
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.rmi.ssl.SslRMIServerSocketFactory;
 
 public class ServerSocket {
 
-    private static final String SERVER_IP = "127.0.0.1";
-    private static final int PORT = 1099;
+    private static final String SERVER_IP = System.getProperty("crest.server.host", "localhost");
+    private static final int PORT = Integer.parseInt(System.getProperty("crest.server.port", "1099"));
 
 
-    private static final String KEYSTORE_PATH =
-            "C:\\Users\\User\\Documents\\NetBeansProjects\\DCS\\server-keystore.p12";
-    private static final String KEYSTORE_PASS = "888888";
+    private static final String KEYSTORE_PATH = System.getProperty(
+            "crest.keystore.path",
+            Paths.get("server.keystore").toAbsolutePath().toString()
+    );
+    private static final String KEYSTORE_PASS = System.getProperty(
+            "crest.keystore.password",
+            "888888"
+    );
 
 
-    private static final boolean SSL = true;
+    private static final boolean SSL = Boolean.parseBoolean(
+            System.getProperty("crest.ssl", "true")
+    );
 
     public static void main(String[] args) {
         try {
@@ -39,8 +48,13 @@ public class ServerSocket {
                 System.clearProperty("javax.net.ssl.trustStorePassword");
 
                 var csf = new SslRMIClientSocketFactory();
-                var ssf = new SslRMIServerSocketFactory(null, null, false); // no client auth
-                reg = LocateRegistry.createRegistry(PORT, csf, ssf);
+                var ssf = new SslRMIServerSocketFactory(null, null, false);
+                try {
+                    reg = LocateRegistry.createRegistry(PORT, csf, ssf);
+                } catch (ExportException alreadyRunning) {
+                    reg = LocateRegistry.getRegistry(SERVER_IP, PORT, csf);
+                    reg.list();
+                }
 
                 System.out.println("keyStore=" + System.getProperty("javax.net.ssl.keyStore"));
             } else {
@@ -51,7 +65,12 @@ public class ServerSocket {
                 System.clearProperty("javax.net.ssl.trustStore");
                 System.clearProperty("javax.net.ssl.trustStorePassword");
 
-                reg = LocateRegistry.createRegistry(PORT);
+                try {
+                    reg = LocateRegistry.createRegistry(PORT);
+                } catch (ExportException alreadyRunning) {
+                    reg = LocateRegistry.getRegistry(SERVER_IP, PORT);
+                    reg.list();
+                }
             }
 
             Database.init();
@@ -59,10 +78,10 @@ public class ServerSocket {
 
             reg.rebind("Authorization", svc);
 
-            System.out.println((SSL ? "✅ SSL" : "⚠️ NON-SSL") + " RMI Server started on port " + PORT);
+            System.out.println((SSL ? "SSL" : "NON-SSL") + " RMI Server started on port " + PORT);
 
         } catch (Exception e) {
-            System.out.println("❌ Server failed: " + e);
+            System.out.println("Server failed: " + e);
             e.printStackTrace();
         }
     }

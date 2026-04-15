@@ -62,3 +62,330 @@
 2026-03-02T12:06:17.701009900 | ping()
 2026-03-02T12:06:57.349944500 | login ok: E-000001 role=STAFF
 2026-03-02T12:16:22.625997 | logout: E-000001
+2026-04-15T16:16:05.706635 | ping()
+2026-04-15T16:16:27.855900 | login ok: H-000001 role=HR
+2026-04-15T16:16:27.864220 | logout: H-000001
+2026-04-15T16:18:18.221569 | ping()
+2026-04-15T16:20:50.833434 | ping()
+2026-04-15T16:20:56.080877 | login ok: E-000001 role=STAFF
+2026-04-15T16:20:56.083822 | logout: E-000001
+2026-04-15T16:21:52.412803 | login fail bad pw: H-000001
+2026-04-15T16:22:35.407713 | login fail bad pw: H-000001
+2026-04-15T16:24:11.217238 | ping()
+2026-04-15T16:24:15.797675 | login ok: H-000001 role=HR
+2026-04-15T16:24:15.857343 | logout: H-000001
+2026-04-15T16:24:44.150896 | ping()
+2026-04-15T16:24:48.342932 | login ok: E-000001 role=STAFF
+2026-04-15T16:24:48.386178 | leaveBalance by E-000001 year=2026 bal=15
+2026-04-15T16:24:48.387622 | logout: E-000001
+2026-04-15T16:26:37.013145 | login fail bad pw: H-000001
+2026-04-15T16:27:03.379577 | ping()
+2026-04-15T16:27:15.812121 | login ok: H-000001 role=HR
+2026-04-15T16:34:19.689852 | ping()
+2026-04-15T16:34:26.979128 | login ok: E-000001 role=STAFF
+2026-04-15T16:34:27.121810 | Staff E-000001 updated details
+2026-04-15T16:34:27.129422 | leaveBalance by E-000001 year=2026 bal=15
+2026-04-15T16:34:27.156521 | leaveBalance by E-000001 year=2026 bal=15
+2026-04-15T16:34:27.352768 | applyLeave: emp=E-000001 leaveId=1 days=1
+2026-04-15T16:34:27.357288 | leaveBalance by E-000001 year=2026 bal=15
+2026-04-15T16:34:27.366840 | applyLeave: emp=E-000001 leaveId=2 days=1
+2026-04-15T16:34:27.370697 | leaveBalance by E-000001 year=2026 bal=15
+2026-04-15T16:34:27.379555 | applyLeave: emp=E-000001 leaveId=3 days=1
+2026-04-15T16:34:27.383308 | leaveBalance by E-000001 year=2026 bal=15
+2026-04-15T16:34:27.392282 | applyLeave: emp=E-000001 leaveId=4 days=1
+2026-04-15T16:34:27.413296 | logout: E-000001
+2026-04-15T16:36:43.177729 | ping()
+2026-04-15T16:36:43.210387 | login ok: H-000001 role=HR
+2026-04-15T16:36:43.325346 | HR H-000001 registered E-000002
+2026-04-15T16:36:43.373621 | decideLeave APPROVED: leaveId=1 by=H-000001
+2026-04-15T16:36:43.389167 | decideLeave REJECTED: leaveId=2 by=H-000001
+2026-04-15T16:36:43.407555 | HR H-000001 generated yearly report for E-000001 year=2026
+2026-04-15T16:36:43.408616 | logout: H-000001
+2026-04-15T16:44:13.484240 | ping()
+2026-04-15T16:44:15.848812 | login ok: E-000001 role=STAFF
+2026-04-15T16:44:15.857026 | leaveBalance by E-000001 year=2026 bal=14
+2026-04-15T16:44:15.870250 | logout: E-000001
+2026-04-15T17:32:13.981434 | ping()
+2026-04-15T17:33:08.534138 | ping()
+2026-04-15T17:33:11.067860 | login ok: H-000001 role=HR
+2026-04-15T17:33:11.104947 | logout: H-000001
+2026-04-15T17:34:09.040159 | ping()
+2026-04-15T17:34:13.567712 | login ok: E-000001 role=STAFF
+2026-04-15T17:34:13.579297 | leaveBalance by E-000001 year=2026 bal=14
+2026-04-15T17:34:13.580742 | logout: E-000001
+2026-04-15T17:46:39.291113 | ping()
+2026-04-15T17:47:08.224625 | login ok: E-000001 role=STAFF
+2026-04-15T17:47:08.243853 | leaveBalance by E-000001 year=2026 bal=14
+2026-04-15T17:47:08.288879 | applyLeave: emp=E-000001 leaveId=5 days=1
+2026-04-15T17:47:08.290331 | logout: E-000001
+2026-04-15T17:47:30.407127 | ping()
+2026-04-15T17:47:33.931127 | login ok: H-000001 role=HR
+2026-04-15T17:47:33.971687 | decideLeave APPROVED: leaveId=5 by=H-000001
+2026-04-15T17:47:33.972626 | logout: H-000001
+2026-04-15T17:48:23.913840 | ping()
+2026-04-15T17:49:11.929936 | login ok: E-000001 role=STAFF
+2026-04-15T17:49:11.943634 | leaveBalance by E-000001 year=2026 bal=14
+2026-04-15T17:49:11.952948 | applyLeave: emp=E-000001 leaveId=6 days=1
+2026-04-15T17:49:11.953971 | logout: E-000001
+2026-04-15T17:49:53.697358 | ping()
+2026-04-15T17:50:01.152874 | login ok: H-000001 role=HR
+2026-04-15T17:50:01.182911 | decideLeave APPROVED: leaveId=6 by=H-000001
+2026-04-15T17:50:01.184065 | logout: H-000001
+2026-04-15T17:50:38.270406 | ping()
+2026-04-15T17:50:40.920267 | login ok: H-000001 role=HR
+2026-04-15T17:50:40.946273 | logout: H-000001
+{"ts":"2026-04-15T18:05:56.831541Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:06:02.966475Z","level":"INFO","action":"app","actor":"-","target":"-","details":"password hash upgraded: H-000001"}
+{"ts":"2026-04-15T18:06:02.966859Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:06:03.099365Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered E-000003"}
+{"ts":"2026-04-15T18:06:03.101916Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:06:28.704114Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:06:55.523399Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000003 role=STAFF"}
+{"ts":"2026-04-15T18:06:55.538996Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff E-000003 updated details"}
+{"ts":"2026-04-15T18:06:55.543824Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000003 year=2026 bal=15"}
+{"ts":"2026-04-15T18:06:55.555457Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000003 year=2026 bal=15"}
+{"ts":"2026-04-15T18:06:55.583967Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=E-000003 leaveId=7 days=1"}
+{"ts":"2026-04-15T18:06:55.59407Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000003"}
+{"ts":"2026-04-15T18:07:25.794831Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:07:29.204233Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:07:29.222395Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=7 by=H-000001"}
+{"ts":"2026-04-15T18:07:29.231211Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for E-000003 year=2026"}
+{"ts":"2026-04-15T18:07:29.232311Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:09:40.363552Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:09:46.348941Z","level":"INFO","action":"app","actor":"-","target":"-","details":"password hash upgraded: E-000001"}
+{"ts":"2026-04-15T18:09:46.349442Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000001 role=STAFF"}
+{"ts":"2026-04-15T18:09:46.351493Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000001"}
+{"ts":"2026-04-15T18:14:17.045081Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:14:17.084596Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:14:17.141715Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered E-000004"}
+{"ts":"2026-04-15T18:14:17.143047Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:14:17.175719Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000004 role=STAFF"}
+{"ts":"2026-04-15T18:14:17.181692Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff E-000004 updated details"}
+{"ts":"2026-04-15T18:14:17.184304Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000004 year=2026 bal=15"}
+{"ts":"2026-04-15T18:14:17.196448Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=E-000004 leaveId=8 days=1"}
+{"ts":"2026-04-15T18:14:17.200357Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000004"}
+{"ts":"2026-04-15T18:14:17.235542Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:14:17.242829Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=8 by=H-000001"}
+{"ts":"2026-04-15T18:14:17.250055Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for E-000004 year=2026"}
+{"ts":"2026-04-15T18:14:17.251047Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:14:17.283787Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000004 role=STAFF"}
+{"ts":"2026-04-15T18:14:17.286631Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000004 year=2026 bal=14"}
+{"ts":"2026-04-15T18:14:17.289878Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000004"}
+{"ts":"2026-04-15T18:15:19.364967Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:19:31.087882Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:19:31.138901Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:19:31.190276Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered E-000005"}
+{"ts":"2026-04-15T18:19:31.191628Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:19:31.227955Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000005 role=STAFF"}
+{"ts":"2026-04-15T18:19:31.235881Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff E-000005 updated details"}
+{"ts":"2026-04-15T18:19:31.238949Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000005 year=2026 bal=15"}
+{"ts":"2026-04-15T18:19:31.264438Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=E-000005 leaveId=9 days=1"}
+{"ts":"2026-04-15T18:19:31.272268Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000005"}
+{"ts":"2026-04-15T18:19:31.310805Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:19:31.320234Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=9 by=H-000001"}
+{"ts":"2026-04-15T18:19:31.331465Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for E-000005 year=2026"}
+{"ts":"2026-04-15T18:19:31.332839Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:19:31.368696Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000005 role=STAFF"}
+{"ts":"2026-04-15T18:19:31.372146Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000005 year=2026 bal=14"}
+{"ts":"2026-04-15T18:19:31.377763Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000005"}
+{"ts":"2026-04-15T18:20:04.318232Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:20:04.352384Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:20:04.395345Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered E-000006"}
+{"ts":"2026-04-15T18:20:04.39663Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:20:04.428143Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000006 role=STAFF"}
+{"ts":"2026-04-15T18:20:04.434239Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff E-000006 updated details"}
+{"ts":"2026-04-15T18:20:04.43684Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000006 year=2026 bal=15"}
+{"ts":"2026-04-15T18:20:04.447254Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=E-000006 leaveId=10 days=1"}
+{"ts":"2026-04-15T18:20:04.45032Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000006"}
+{"ts":"2026-04-15T18:20:04.481389Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:20:04.488544Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=10 by=H-000001"}
+{"ts":"2026-04-15T18:20:04.49291Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for E-000006 year=2026"}
+{"ts":"2026-04-15T18:20:04.493915Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:20:04.528305Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000006 role=STAFF"}
+{"ts":"2026-04-15T18:20:04.532649Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000006 year=2026 bal=14"}
+{"ts":"2026-04-15T18:20:04.535919Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000006"}
+{"ts":"2026-04-15T18:23:24.194688Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:23:24.247199Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:44.403457Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:34:44.480051Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:44.580525Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.61984Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=7"}
+{"ts":"2026-04-15T18:34:44.629844Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.651041Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.65504Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.656533Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:34:44.688639Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 643c104a9a4c467385ce role=STAFF"}
+{"ts":"2026-04-15T18:34:44.695058Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff 643c104a9a4c467385ce updated details"}
+{"ts":"2026-04-15T18:34:44.699763Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 643c104a9a4c467385ce year=2026 bal=15"}
+{"ts":"2026-04-15T18:34:44.744941Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=643c104a9a4c467385ce leaveId=107 days=1"}
+{"ts":"2026-04-15T18:34:44.7521Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.784607Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:44.806187Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=107 by=H-000001"}
+{"ts":"2026-04-15T18:34:44.818022Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for 643c104a9a4c467385ce year=2026"}
+{"ts":"2026-04-15T18:34:44.819064Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:34:44.850962Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 643c104a9a4c467385ce role=STAFF"}
+{"ts":"2026-04-15T18:34:44.854325Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 643c104a9a4c467385ce year=2026 bal=14"}
+{"ts":"2026-04-15T18:34:44.860723Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.892362Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:44.911079Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee 643c104a9a4c467385ce"}
+{"ts":"2026-04-15T18:34:44.923159Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=6"}
+{"ts":"2026-04-15T18:34:44.924704Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:34:59.637187Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T18:34:59.673875Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:59.724037Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.737133Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=7"}
+{"ts":"2026-04-15T18:34:59.742975Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.7502Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.753437Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.754493Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:34:59.786056Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 7427336ceaec4e55ad4b role=STAFF"}
+{"ts":"2026-04-15T18:34:59.791395Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff 7427336ceaec4e55ad4b updated details"}
+{"ts":"2026-04-15T18:34:59.793945Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 7427336ceaec4e55ad4b year=2026 bal=15"}
+{"ts":"2026-04-15T18:34:59.805021Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=7427336ceaec4e55ad4b leaveId=108 days=1"}
+{"ts":"2026-04-15T18:34:59.808534Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.839343Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:59.84714Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=108 by=H-000001"}
+{"ts":"2026-04-15T18:34:59.853355Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for 7427336ceaec4e55ad4b year=2026"}
+{"ts":"2026-04-15T18:34:59.854283Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T18:34:59.885671Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 7427336ceaec4e55ad4b role=STAFF"}
+{"ts":"2026-04-15T18:34:59.888696Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 7427336ceaec4e55ad4b year=2026 bal=14"}
+{"ts":"2026-04-15T18:34:59.892252Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.923527Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T18:34:59.930152Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee 7427336ceaec4e55ad4b"}
+{"ts":"2026-04-15T18:34:59.941121Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=6"}
+{"ts":"2026-04-15T18:34:59.942569Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:13:39.462938Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:13:39.527741Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:13:45.180229Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=6"}
+{"ts":"2026-04-15T19:20:05.288916Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Default staff ensured: E-000001"}
+{"ts":"2026-04-15T19:20:22.814635Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:20:22.995665Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:20:23.079448Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.109875Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=7"}
+{"ts":"2026-04-15T19:20:23.116553Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.134026Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.137756Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.139271Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:20:23.171298Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 7f52095c498748e58ba2 role=STAFF"}
+{"ts":"2026-04-15T19:20:23.177355Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff 7f52095c498748e58ba2 updated details"}
+{"ts":"2026-04-15T19:20:23.181842Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 7f52095c498748e58ba2 year=2026 bal=15"}
+{"ts":"2026-04-15T19:20:23.230082Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=7f52095c498748e58ba2 leaveId=207 days=1"}
+{"ts":"2026-04-15T19:20:23.237211Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.26984Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:20:23.290642Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=207 by=H-000001"}
+{"ts":"2026-04-15T19:20:23.30193Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for 7f52095c498748e58ba2 year=2026"}
+{"ts":"2026-04-15T19:20:23.303082Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:20:23.335185Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 7f52095c498748e58ba2 role=STAFF"}
+{"ts":"2026-04-15T19:20:23.338364Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 7f52095c498748e58ba2 year=2026 bal=14"}
+{"ts":"2026-04-15T19:20:23.344591Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.379496Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:20:23.397715Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee 7f52095c498748e58ba2"}
+{"ts":"2026-04-15T19:20:23.409238Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=6"}
+{"ts":"2026-04-15T19:20:23.410729Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:29:29.571632Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Default staff ensured: E-000001"}
+{"ts":"2026-04-15T19:29:32.37656Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:29:32.56552Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: E-000001 role=STAFF"}
+{"ts":"2026-04-15T19:30:01.895246Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by E-000001 year=2026 bal=13"}
+{"ts":"2026-04-15T19:30:12.380916Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: E-000001"}
+{"ts":"2026-04-15T19:30:36.71269Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:30:45.030134Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=6"}
+{"ts":"2026-04-15T19:33:11.79241Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 715520944b774f85b30c"}
+{"ts":"2026-04-15T19:38:29.381589Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Default staff ensured: E-000001"}
+{"ts":"2026-04-15T19:38:49.543469Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:38:49.722434Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:38:49.805513Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:49.838925Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=8"}
+{"ts":"2026-04-15T19:38:49.846367Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:49.864574Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:49.868059Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:49.869482Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:38:49.906965Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 5ff1ce1c76804b068595 role=STAFF"}
+{"ts":"2026-04-15T19:38:49.90803Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:49.941323Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 5ff1ce1c76804b068595 role=STAFF"}
+{"ts":"2026-04-15T19:38:49.948042Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff 5ff1ce1c76804b068595 updated details"}
+{"ts":"2026-04-15T19:38:49.952396Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 5ff1ce1c76804b068595 year=2026 bal=15"}
+{"ts":"2026-04-15T19:38:49.998192Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=5ff1ce1c76804b068595 leaveId=307 days=1"}
+{"ts":"2026-04-15T19:38:50.005222Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:50.037227Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:38:50.056943Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=307 by=H-000001"}
+{"ts":"2026-04-15T19:38:50.068101Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for 5ff1ce1c76804b068595 year=2026"}
+{"ts":"2026-04-15T19:38:50.069241Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:38:50.104054Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 5ff1ce1c76804b068595 role=STAFF"}
+{"ts":"2026-04-15T19:38:50.1072Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 5ff1ce1c76804b068595 year=2026 bal=14"}
+{"ts":"2026-04-15T19:38:50.11262Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:50.143776Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:38:50.161266Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee 5ff1ce1c76804b068595"}
+{"ts":"2026-04-15T19:38:50.173369Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=7"}
+{"ts":"2026-04-15T19:38:50.174771Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:46:29.856475Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Default staff ensured: E-000001"}
+{"ts":"2026-04-15T19:47:06.686403Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:47:06.877263Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:47:06.954299Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:06.989665Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=8"}
+{"ts":"2026-04-15T19:47:06.997009Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.014263Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.017623Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.019031Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:47:07.055828Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 0c5e44fd901743e58348 role=STAFF"}
+{"ts":"2026-04-15T19:47:07.056925Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.090072Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 0c5e44fd901743e58348 role=STAFF"}
+{"ts":"2026-04-15T19:47:07.096593Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Staff 0c5e44fd901743e58348 updated details"}
+{"ts":"2026-04-15T19:47:07.100981Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 0c5e44fd901743e58348 year=2026 bal=15"}
+{"ts":"2026-04-15T19:47:07.147609Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=0c5e44fd901743e58348 leaveId=407 days=1"}
+{"ts":"2026-04-15T19:47:07.154513Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.18646Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:47:07.206324Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=407 by=H-000001"}
+{"ts":"2026-04-15T19:47:07.217374Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 generated yearly report for 0c5e44fd901743e58348 year=2026"}
+{"ts":"2026-04-15T19:47:07.22146Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:47:07.253886Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: 0c5e44fd901743e58348 role=STAFF"}
+{"ts":"2026-04-15T19:47:07.257617Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by 0c5e44fd901743e58348 year=2026 bal=14"}
+{"ts":"2026-04-15T19:47:07.263252Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.294306Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:47:07.31261Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee 0c5e44fd901743e58348"}
+{"ts":"2026-04-15T19:47:07.325609Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=7"}
+{"ts":"2026-04-15T19:47:07.32728Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:49:15.930151Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:49:58.595023Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Default staff ensured: E-000001"}
+{"ts":"2026-04-15T19:50:20.247735Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:50:52.840917Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:51:00.607982Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 listed employees count=7"}
+{"ts":"2026-04-15T19:53:33.331804Z","level":"INFO","action":"app","actor":"-","target":"-","details":"Default staff ensured: E-000001"}
+{"ts":"2026-04-15T19:54:01.286778Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:54:01.472257Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:54:01.549961Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered ffe19e46442c47ecac83"}
+{"ts":"2026-04-15T19:54:01.565321Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee ffe19e46442c47ecac83"}
+{"ts":"2026-04-15T19:54:01.570763Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee ffe19e46442c47ecac83"}
+{"ts":"2026-04-15T19:54:01.57622Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee ffe19e46442c47ecac83"}
+{"ts":"2026-04-15T19:54:01.602523Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee ffe19e46442c47ecac83"}
+{"ts":"2026-04-15T19:54:01.604316Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:57:29.8155Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:57:29.893696Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:57:29.973599Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 5ffc65"}
+{"ts":"2026-04-15T19:57:29.998591Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 5ffc65"}
+{"ts":"2026-04-15T19:57:30.005143Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 5ffc65"}
+{"ts":"2026-04-15T19:57:30.052628Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 81ba63"}
+{"ts":"2026-04-15T19:57:30.060015Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 81ba63"}
+{"ts":"2026-04-15T19:57:30.063018Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 81ba63"}
+{"ts":"2026-04-15T19:57:30.105864Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered 0df6ff"}
+{"ts":"2026-04-15T19:57:30.112953Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee 0df6ff"}
+{"ts":"2026-04-15T19:57:30.115735Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee 0df6ff"}
+{"ts":"2026-04-15T19:57:30.117668Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:59:12.203262Z","level":"INFO","action":"app","actor":"-","target":"-","details":"ping()"}
+{"ts":"2026-04-15T19:59:12.24576Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:59:12.29671Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 registered f84488"}
+{"ts":"2026-04-15T19:59:12.30359Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 updated employee f84488"}
+{"ts":"2026-04-15T19:59:12.306212Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 viewed employee f84488"}
+{"ts":"2026-04-15T19:59:12.307177Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:59:12.345152Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: f84488 role=STAFF"}
+{"ts":"2026-04-15T19:59:12.350513Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by f84488 year=2026 bal=15"}
+{"ts":"2026-04-15T19:59:12.406028Z","level":"INFO","action":"app","actor":"-","target":"-","details":"applyLeave: emp=f84488 leaveId=507 days=1"}
+{"ts":"2026-04-15T19:59:12.407037Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: f84488"}
+{"ts":"2026-04-15T19:59:12.440154Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:59:12.455357Z","level":"INFO","action":"app","actor":"-","target":"-","details":"decideLeave APPROVED: leaveId=507 by=H-000001"}
+{"ts":"2026-04-15T19:59:12.456453Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}
+{"ts":"2026-04-15T19:59:12.49145Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: f84488 role=STAFF"}
+{"ts":"2026-04-15T19:59:12.494764Z","level":"INFO","action":"app","actor":"-","target":"-","details":"leaveBalance by f84488 year=2026 bal=14"}
+{"ts":"2026-04-15T19:59:12.495443Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: f84488"}
+{"ts":"2026-04-15T19:59:12.526139Z","level":"INFO","action":"app","actor":"-","target":"-","details":"login ok: H-000001 role=HR"}
+{"ts":"2026-04-15T19:59:12.539742Z","level":"INFO","action":"app","actor":"-","target":"-","details":"HR H-000001 deleted employee f84488"}
+{"ts":"2026-04-15T19:59:12.540452Z","level":"INFO","action":"app","actor":"-","target":"-","details":"logout: H-000001"}

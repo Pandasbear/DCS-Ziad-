@@ -1,10 +1,14 @@
+Wed Apr 15 20:09:53 GMT+08:00 2026 : Apache Derby Network Server - 10.16.1.1 - (1901046) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sat Feb 28 13:50:42 MYT 2026D001 : [0] The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046), [1] a816c00e-019c-a2cc-9338-00001e877d10, [2] C:\Users\User\Documents\NetBeansProjects\Crest\crestDB, [3] jdk.internal.loader.ClassLoaders$AppClassLoader@5acf9800, [4] file:/C:/Users/User/Desktop/db-derby-10.16.1.1-bin/lib/derby.jar
+Wed Apr 15 20:10:17 GMT+08:00 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-019d-910c-440b-00000745f980 
+on database directory /Users/dbear/Downloads/DCS-Ziad-/crestDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@7a8c5397 
+Loaded from file:/Users/dbear/Downloads/DCS-Ziad-/lib/derby-10.16.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=17.0.12+8-LTS-286
-user.dir=C:\Users\User\Documents\NetBeansProjects\Crest
-os.name=Windows 11
-os.arch=amd64
-os.version=10.0
+java.runtime.version=25.0.2+10-LTS-69
+user.dir=/Users/dbear/Downloads/DCS-Ziad-
+os.name=Mac OS X
+os.arch=aarch64
+os.version=26.3
 derby.system.home=null
-C005 : [0] 
+Database Class Loader started - derby.database.classpath=''

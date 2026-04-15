@@ -2,6 +2,7 @@ package Common;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public interface Authorization extends Remote {
 
@@ -24,11 +25,15 @@ public interface Authorization extends Remote {
                    String endDateYYYYMMDD,
                    String reason) throws RemoteException;
 
-    String viewMyLeaveApplications(UserSession session) throws RemoteException;  // includes pending
-    String viewMyLeaveHistory(UserSession session) throws RemoteException;       // approved/rejected only
+    String viewMyLeaveApplications(UserSession session) throws RemoteException;
+    String viewMyLeaveHistory(UserSession session) throws RemoteException;
 
 
     String viewPendingLeaveApplications(UserSession session) throws RemoteException;
+    List<Employee> listEmployees(UserSession session) throws RemoteException;
+    Employee getEmployeeById(UserSession session, String employeeId) throws RemoteException;
+    Employee updateEmployeeByHr(UserSession session, Employee updated) throws RemoteException;
+    void deleteEmployee(UserSession session, String employeeId) throws RemoteException;
 
     void decideLeave(UserSession session,
                      int leaveId,
